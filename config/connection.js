@@ -8,9 +8,9 @@ var connection = mysql.createConnection({
     database: 'burgers_db'
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
     if (err) throw err;
-    console.log("Connected to database");
+    console.log("Connected to Database");
 });
 
 module.exports = connection;

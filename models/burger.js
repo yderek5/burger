@@ -3,18 +3,18 @@
 var orm = require('../config/orm');
 
 var Burger = {
-    all: function(callback) {
-        orm.selectAll(function(res) {
+    all: function (callback) {
+        orm.selectAll(function (res) {
             callback(res);
         });
     },
-    create: function(callback) {
-        orm.insertOne(function(res) {
+    create: function (burgerName, callback) {
+        orm.insertOne(burgerName, function (res) {
             callback(res);
         });
     },
-    update: function(callback) {
-        orm.updateOne(function(res) {
+    update: function (burgerId, callback) {
+        orm.updateOne(burgerId, function (res) {
             callback(res);
         });
     }

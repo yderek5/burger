@@ -1,17 +1,33 @@
-<div class="container text-center">
-    <img src="/images/burger.png" alt="Image of a cheese burger">
-    <h1>Eat Da Burger</h1>
-    <br>
-    <p>Enter a burger you would like to add</p>
-    <textarea name="blah" id="" cols="30" rows="2"></textarea>
-    <br>
-    <button class="btn-lg btn-primary btn">Add Burger!</button>
-</div>
 <div class="container">
-    <div class="col-xs-6 notDevoured">
-        <h1 class="text-left">Not Devoured</h1>
+    <div class="row text-center">
+        <img src="/images/burger.png" alt="Image of a cheese burger">
+        <h1>Eat-Da-Burger</h1>
+        <form class="form-inline create-burger">
+            <div class="form-group">
+                <input type="text" class="form-control" id="burger" placeholder="Enter a Burger Name!">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <div class="col-xs-6 devoured">
-        <h1 class="text-right">Devoured</h1>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>Eat Up!</h2>
+            <ul class="list-group">
+                {{#each burgers}} {{#unless devoured}}
+                <li class="list-group-item">
+                    {{burger_name}}
+                    <button type="button" class="btn btn-xs btn-danger pull-right devour" burger-id="{{id}}">Devour!</button>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+        <div class="col-xs-6">
+            <h2>Yum!</h2>
+            <ul class="list-group">
+                {{#each burgers}} {{#if devoured}}
+                <li class="list-group-item">{{burger_name}}</li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
     </div>
 </div>
